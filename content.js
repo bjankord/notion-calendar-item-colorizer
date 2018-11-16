@@ -12,12 +12,25 @@ function colorize() {
     const elemsArray = Array.from(elems);
 
     let color = 0;
-    
+    let content = '';
+    let oldContent;
     elemsArray.forEach(function (element, i) {
-      element.style.background = colors[color];
-      color = color + 1;
-      if (color === colors.length) {
-        color = 0;
+      oldContent = content;
+      console.log(`oldConent ${oldContent}`);
+      content = element.querySelector('span').innerText;
+      console.log(`content ${content}`);
+
+      if (oldContent === content) {
+        element.style.background = colors[color];
+      }
+
+      if (oldContent !== content) {
+        color = color + 1;
+        if (color === colors.length) {
+          color = 0;
+        }
+
+        element.style.background = colors[color];
       }
     });
   }
