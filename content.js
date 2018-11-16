@@ -9,11 +9,10 @@ function colorize() {
 
   if (document.querySelectorAll('.vertical.horizontal .notion-selectable a')) {
     const elems = document.querySelectorAll('.vertical.horizontal .notion-selectable a');
-    console.log(elems);
     const elemsArray = Array.from(elems);
-    console.log(elemsArray);
 
     let color = 0;
+    
     elemsArray.forEach(function (element, i) {
       element.style.background = colors[color];
       color = color + 1;
